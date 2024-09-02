@@ -1,0 +1,72 @@
+﻿## README
+
+### Projeto CP 01 - 2024
+
+Este projeto é uma aplicação em C# que coleta informações de cartas de um conjunto específico do site Scryfall e armazena essas informações em um banco de dados. Em seguida, exporta os dados para um arquivo CSV.
+
+### Estrutura do Projeto
+
+- `Program.cs`: Contém a lógica principal para coletar dados das cartas, armazená-los no banco de dados e exportá-los para um arquivo CSV.
+- `SfCard.cs`: Define a classe `SfCard` que representa uma carta.
+- `SfCardDbContext.cs`: Define o contexto do Entity Framework para interagir com o banco de dados.
+
+### Dependências
+
+- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
+- [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
+- [Entity Framework Core](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/)
+
+### Como Executar
+
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/usuario/repositorio.git
+   cd repositorio
+   ```
+
+2. Restaure as dependências:
+   ```sh
+   dotnet restore
+   ```
+
+3. Execute o projeto:
+   ```sh
+   dotnet run
+   ```
+
+### Funcionalidades
+
+- Coleta URLs de cartas de um conjunto específico do site Scryfall.
+- Extrai informações das cartas (nome e descrição) de cada URL.
+- Armazena as informações das cartas em um banco de dados SQLite.
+- Exporta os dados das cartas para um arquivo CSV (`cards.csv`).
+
+### Estrutura do Banco de Dados
+
+A tabela `SFCARDS` possui as seguintes colunas:
+- `ID`: Identificador único da carta.
+- `NAME`: Nome da carta.
+- `DESCRIPTION`: Descrição da carta.
+
+### Exemplo de Saída
+
+O arquivo `cards.csv` gerado terá o seguinte formato:
+
+```
+ID | NAME | DESCRIPTION
+1 | Kitsa, Otterball Elite | Vigilance Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.) {T}: Draw a card, then discard a card. {2}, {T}: Copy target instant or sorcery spell you control. You may choose new targets for the copy. Activate only if Kitsa’s power is 3 or greater.
+2 | Muerra, Trash Tactician | At the beginning of your first main phase, add {R} or {G} for each Raccoon you control. Whenever you expend 4, you gain 3 life. (You expend 4 as you spend your fourth total mana to cast spells during a turn.) Whenever you expend 8, exile the top two cards of your library. Until the end of your next turn, you may play those cards.
+...
+```
+
+### Contribuição
+
+1. Faça um fork do projeto.
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`).
+3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`).
+4. Faça um push para a branch (`git push origin feature/nova-feature`).
+5. Crie um novo Pull Request.
+
+### Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
